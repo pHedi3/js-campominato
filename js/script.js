@@ -3,17 +3,26 @@ function randomNumber(min, max) {
 }
 var numBomb = 16
 var numBox = 100
-var bombNum = [];
-var userNum = [];
+var bombNumList = [];
+var userNumList = [];
 
-while(bombNum.length < numBomb) {
+while(bombNumList.length < numBomb) {
     var num = randomNumber(1, numBox);
-    if (!bombNum.includes(num)) {
-        bombNum.push(num)
+    if (!bombNumList.includes(num)) {
+        bombNumList.push(num)
+    }
+}
+console.log(bombNumList)
+
+while (userNumList.length < (numBox - numBomb)) {
+    var userNum = parseInt(prompt('inserisci un numero da 1 a 100'))
+    if(!userNumList.includes(userNum) && !bombNumList.includes(userNum)) {
+        userNumList.push(userNum)
+    } else if (bombNumList.includes(userNum)) {
+        break
+    } else {
+        alert('numero gia inserito')
     }
 }
 
-
-while (userNum < (numBox - numBomb)) {
-    
-}
+document.getElementById('result').innerHTML = 'il tuo punteggio è: ' + userNumList.length;

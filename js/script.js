@@ -1,10 +1,33 @@
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
-var numBomb = 16
-var numBox = 100
+var numBomb = 0
+var numBox = 0
 var bombNumList = [];
 var userNumList = [];
+var dif = prompt('inserisci difficoltà tra 0, 1 e 2')
+
+switch (dif) {
+    case '0':
+        numBomb = 16
+        numBox = 100
+        break
+    case '1':
+        numBomb = 16
+        numBox = 80
+        break
+    case '2': 
+        numBomb = 16
+        numBox = 50
+        break
+    
+    default:
+        alert('hai selezionato una difficoòtà inesistente')
+
+}
+
+
+
 
 while(bombNumList.length < numBomb) {
     var num = randomNumber(1, numBox);

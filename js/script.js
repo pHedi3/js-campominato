@@ -26,9 +26,6 @@ switch (dif) {
 
 }
 
-
-
-
 while(bombNumList.length < numBomb) {
     var num = randomNumber(1, numBox);
     if (!bombNumList.includes(num)) {
@@ -38,8 +35,10 @@ while(bombNumList.length < numBomb) {
 console.log(bombNumList)
 
 while (userNumList.length < (numBox - numBomb)) {
-    var userNum = parseInt(prompt('inserisci un numero da 1 a 100'))
-    if(!userNumList.includes(userNum) && !bombNumList.includes(userNum)) {
+    var userNum = parseInt(prompt('inserisci un numero da 1 a ' + numBox))
+    if(isNaN(userNum)) {
+        alert('devi inserire un numero')
+    } else if (!userNumList.includes(userNum) && !bombNumList.includes(userNum)) {
         userNumList.push(userNum)
     } else if (bombNumList.includes(userNum)) {
         break
